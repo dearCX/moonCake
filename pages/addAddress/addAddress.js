@@ -5,14 +5,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-    errorUrl:'./../../imgs/error.png',
+    errorUrl: './../../imgs/error.png',
+    deleteUrl: './../../imgs/deleteOne.png',
+    removeUrl: './../../imgs/delete.png',
+    infoUrl: './../../imgs/info.png',
     name: '',
     phone: '',
     area: '',
     street: '',
     region: ['广东省', '广州市', '海珠区'],
     customItem: '全部',
-    address: ''
+    address: '',
+    isEdit: '',
+    isRemove: false
   },
   bindRegionChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -22,14 +27,52 @@ Page({
   },
   saveAddress: function () {
     wx.navigateTo({
-      url: '../selAddress/selAddress'
+      url: '../selAddress/selAddress?add=0'
+    })
+  },
+  deleteName: function () {
+    this.setData({
+      name: ''
+    })
+  },
+  deletePhone: function () {
+    this.setData({
+      phone: ''
+    })
+  },
+  deleteAddress: function () {
+    this.setData({
+      address: ''
+    })
+  },
+  removeAddress: function () {
+    this.setData({
+      isRemove: true
+    })
+  },
+  cancel: function () {
+    this.setData({
+      isRemove: false
+    })
+  },
+  confirm: function () {
+    this.setData({
+      isRemove: false
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    if (options.isEdit === 'true') {
+      wx.setNavigationBarTitle({
+        title: '修改地址'
+      })
+    }
+    options.isEdit = options.isEdit === 'true' ? true : false
+    this.setData({
+      isEdit: options.isEdit
+    })
   },
 
   /**

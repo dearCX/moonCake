@@ -1,2 +1,6 @@
 <!--pages/mine/mine.wxml-->
-<text>pages/mine/mine.wxml</text>
+<view class="sub-container">
+  <image class="not-submit" mode="widthFix" src="{{notSubSrc}}"></image> 
+  <view class="info">您还没有预定欧</view>
+  <button class="to-submit" bindtap='toSubmit'>去预定</button>
+</view>

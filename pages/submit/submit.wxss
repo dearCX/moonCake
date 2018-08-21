@@ -161,3 +161,34 @@
   font-size: 16px;
   color: #FCCB1C;
 }
+.info-container{
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 90;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background-color: rgba(0,0,0,.6)
+}
+.info-container image{
+  width: 70%;
+  margin-top: 163px;
+}
+.info-content{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 60%;
+  padding: 0 22% 0 18%;
+  text-align: center;
+  margin-top: 277px;
+}
+.info-content view{
+  margin-bottom: 30px;
+  color: #2D3153;
+  font-size: 16px;
+  font-family: 'AdobeHeitiStd-Regular';
+}

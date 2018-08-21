@@ -13,7 +13,9 @@ Page({
     titleSrc: './../../imgs/rule.png',
     detailSrc: './../../imgs/detail.png',
     ruleSrc: './../../imgs/ruleBg.png',
-    num: 1,
+    infoUrl: './../../imgs/info.png',
+    num: 0,
+    selNum: false,
     ruleList:[
       {
         url:'./../../imgs/star.png',
@@ -41,9 +43,15 @@ Page({
     
   },
   toPay: function() {
-    wx.navigateTo({
-      url: '../selAddress/selAddress'
-    })
+    if (this.data.num < 1) {
+      this.setData({
+        selNum:true
+      })
+    } else {
+      wx.navigateTo({
+        url: '../selAddress/selAddress'
+      })
+    }
   },
   addNumber: function() {
     this.data.num++
@@ -52,7 +60,7 @@ Page({
     })
   },
   minusNumber: function() {
-    if (this.data.num > 1) {
+    if (this.data.selNum > 1) {
       this.data.num--
       this.setData({
         num: this.data.num

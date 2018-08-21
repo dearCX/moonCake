@@ -50,14 +50,14 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    let page = getCurrentPages()
-    wx.navigateBack({
-      // url: '../index/index'
-      delta: 4
-    })
-    // wx.redirectTo({
-    //   url: '../index/index'
+    // let page = getCurrentPages()
+    // wx.navigateBack({
+    //   // url: '../index/index'
+    //   delta: 4
     // })
+    wx.reLaunch({
+      url: '../index/index'
+    })
   },
 
   /**

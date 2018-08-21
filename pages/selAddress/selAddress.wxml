@@ -7,7 +7,7 @@
       盒猫山王榴莲月饼待分配地址
     </view>
     <view class="address-list">
-      <view class="address-item" wx:for="{{addressList}}" wx:for-item="address" wx:key="{{index}}">
+      <view class="address-item" wx:for="{{addressList}}" wx:for-item="address" wx:key="{{index}}" bindtap="editAddress">
         <view class="info">
           <view>
             <span class="name">{{address.name}}</span>
@@ -40,4 +40,11 @@
     </view>
   </view>
   <button class="submit-btn" bindtap="toSubmit"> 提交 </button>
+  <view wx:if="{{ifEnough}}" class="info-container">
+    <image mode="widthFix" src="{{infoUrl}}" ></image> 
+    <view class="info-content">
+      <view wx:if="{{num < 1}}">您没有可分配的月饼了</view>
+      <view wx:if="{{num > 0}}">您还有月饼未分配，请分配完成再进行提交</view>
+    </view>
+  </view>
 </scroll-view>

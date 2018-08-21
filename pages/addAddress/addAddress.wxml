@@ -12,6 +12,7 @@
     <view class="info">
       <text>收货人</text>
       <input bindinput="name" type="text" placeholder="请填写真实姓名"/>
+      <image wx:if="{{isEdit}}" class="delete" mode="widthFix" src="{{deleteUrl}}" bindtap="deleteName"></image> 
     </view>
     <!-- <view class="error-info" wx:if="{{phone === ''}}">
       <image class="error" mode="widthFix" src="{{errorUrl}}"></image> 
@@ -24,6 +25,7 @@
     <view class="info">
       <text>联系方式</text>
       <input bindinput="phone" placeholder="请填写手机号码"/>
+      <image wx:if="{{isEdit}}" class="delete" mode="widthFix" src="{{deleteUrl}}" bindtap="deletePhone"></image> 
     </view>
     <!-- <view class="error-info" wx:if="{{area === ''}}">
       <image class="error" mode="widthFix" src="{{errorUrl}}"></image> 
@@ -41,7 +43,24 @@
       <image class="error" mode="widthFix" src="{{errorUrl}}"></image> 
       <text>请填写详细地址</text>
     </view> -->
-    <textarea bindinput="address" placeholder="详细地址" placeholder-style="color:#fff;" class="address"/>
+    <view class="address">
+      <text>详细地址</text>
+      <!-- <input bindinput="phone" placeholder="请填写手机号码"/> -->
+      <textarea bindinput="address"/>
+      <image wx:if="{{isEdit}}" class="delete" mode="widthFix" src="{{deleteUrl}}" bindtap="deleteAddress"></image> 
+    </view>
+  </view>
+  <view wx:if="{{isEdit}}" class="delete-btn" bindtap="removeAddress">
+    <image mode="widthFix" src="{{removeUrl}}" ></image> 
+    <text>删除</text>
   </view>
   <button class="save-btn" bindtap='saveAddress'>保存</button>
+  <view wx:if="{{isRemove}}" class="info-container">
+    <image mode="widthFix" src="{{infoUrl}}" ></image> 
+    <view class="info-content">
+      <view>确定删除该地址？</view>
+      <button class="cancel-btn" bindtap='cancel'>取消</button>
+      <button class="confirm-btn" bindtap='confirm'>确定</button>
+    </view>
+  </view>
 </view>

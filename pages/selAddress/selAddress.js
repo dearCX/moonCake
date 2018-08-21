@@ -18,22 +18,46 @@ Page({
     minusSrc:'./../../imgs/addressMinus.png',
     addAddSrc:'./../../imgs/addressAdd.png',
     addAddDisableSrc:'./../../imgs/addressAddDisable.png',
+    infoUrl: './../../imgs/info.png',
+    ifEnough: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    if (options.add === '0') {
+      this.setData({
+        num: 0
+      })
+    }
   },
   toSubmit: function() {
-    wx.navigateTo({
-      url: '../mySubmit/mySubmit'
-    })
+    if (this.data.num < 1) {
+      wx.navigateTo({
+        url: '../mySubmit/mySubmit'
+      })
+    } else {
+      this.setData({
+        ifEnough: true,
+        
+      })
+    }
   },
   toAddAddress: function() {
+    if (this.data.num > 0) {
+      wx.navigateTo({
+        url: '../addAddress/addAddress?isEdit=false'
+      })
+    } else {
+      this.setData({
+        ifEnough: true
+      })
+    }
+  },
+  editAddress: function() {
     wx.navigateTo({
-      url: '../addAddress/addAddress'
+      url: '../addAddress/addAddress?isEdit=true'
     })
   },
   /**

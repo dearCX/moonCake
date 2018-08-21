@@ -36,17 +36,44 @@
 }
 .info input{
   float: left;
-  width: 73%;
+  width: 70%;
   height: 50px;
   line-height: 50px;
 }
+.delete{
+  float: right;
+  width: 21px;
+  height: 21px;
+  margin-top: 15px;
+}
 .area{
   display: inline-block;
-  width: 73%;
+  width: 70%;
 }
-.address{
-  width: 100%;
-  border-bottom:1px solid #666;
+.add-content .address{
+  height: 116px;
+}
+.address textarea{
+  display: inline-block;
+  width: 70%;
+  height: 116px;
+}
+.address text{
+  float: left;
+  width: 59px;
+  margin-right: 18px;
+}
+.delete-btn{
+  float: right;
+  margin-right: 15px;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #F8C702;
+}
+.delete-btn image{
+  width: 14px;
+  height: 15px;
+  margin-right: 11px;
 }
 .save-btn{
   position: fixed;
@@ -60,4 +87,51 @@
   color: #2D3153;
   font-size: 16px;
   background-color: #FCCB1C;
+}
+.info-container{
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 90;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background-color: rgba(0,0,0,.6)
+}
+.info-container image{
+  width: 280px;
+  margin-top: 163px;
+}
+.info-content{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  margin-top: 277px;
+}
+.info-content view{
+  margin-bottom: 30px;
+  color: #2D3153;
+  font-size: 16px;
+  font-family: 'AdobeHeitiStd-Regular';
+}
+.info-container button{
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #FCCB1C;
+  border:1px solid #FCCB1C;
+  border-radius: 15px;
+  color: #2D3153;
+  font-size: 14px;
+  font-family: 'AdobeHeitiStd-Regular';
+}
+.info-container .cancel-btn{
+  margin-right: 20px;
+  background-color: #fff;
+  color: #FCCB1C;
 }

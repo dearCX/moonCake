@@ -5,9 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    notSubSrc: './../../imgs/notSubmit.png'
   },
-
+  toSubmit: function () {
+    wx.navigateTo({
+      url: '../submit/submit'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
