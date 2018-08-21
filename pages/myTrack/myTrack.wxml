@@ -1,0 +1,22 @@
+<!--pages/myTrack/myTrack.wxml-->
+<scroll-view scroll-y class="my-container">
+  <view class="track-item" wx:for="{{trackList}}" wx:for-item="track" wx:key="{{index}}">
+    <view class="info-container"> 
+      <view class="info">
+        <view>
+          <span class="name">{{track.name}}</span>
+          <span class="phone">{{track.phone}}</span>
+        </view>
+        <view class="address">{{track.address}}</view>
+      </view>
+      <view class="one-total">
+        <text>{{track.number}}</text>盒
+      </view>
+    </view>
+    <view class="track">
+      顺丰单号
+      <text>{{track.trackNum}}</text>
+      <button class="copy-btn">复制</button>
+    </view>
+  </view>
+</scroll-view>

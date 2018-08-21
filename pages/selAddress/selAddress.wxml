@@ -1,0 +1,43 @@
+<!--pages/mySubmit/mySubmit.wxml-->
+<scroll-view scroll-y class="my-container">
+  <view  class="content">
+    <view class="total">
+      您还有
+      <text>{{num}}</text>
+      盒猫山王榴莲月饼待分配地址
+    </view>
+    <view class="address-list">
+      <view class="address-item" wx:for="{{addressList}}" wx:for-item="address" wx:key="{{index}}">
+        <view class="info">
+          <view>
+            <span class="name">{{address.name}}</span>
+            <span class="phone">{{address.phone}}</span>
+          </view>
+          <view class="address">{{address.address}}</view>
+        </view>
+        <view class="openrate-btn">
+          <view>
+            <image class="minus" wx:if="{{address.number <= 1}}" src="{{minusDisableSrc}}"></image>
+            <image class="minus" wx:else src="{{minusSrc}}"></image>
+          </view>
+          <view>{{address.number}}</view>
+          <view>
+            <image class="add" src="{{addAddSrc}}"></image>
+            <!-- <image class="add" wx:if="address.number <= 1" src="{{addAddDisableSrc}}"></image> -->
+          </view>
+        </view>
+        <view class="to-edit">
+          <image src="{{toSrc}}"></image>
+        </view>
+      </view>
+    </view>
+    <view class="add-address" bindtap="toAddAddress">
+      <image class="add-icon" src="{{addSrc}}"></image>
+      <text>新增地址</text>
+      <view class="to-edit">
+        <image src="{{toSrc}}"></image>
+      </view>
+    </view>
+  </view>
+  <button class="submit-btn" bindtap="toSubmit"> 提交 </button>
+</scroll-view>

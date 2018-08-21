@@ -1,0 +1,63 @@
+/* pages/addAddress/addAddress.wxss */
+.add-container{
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #2d3153;
+}
+.add-content{
+  background-color: #303355;
+}
+.add-content>view{
+  height:50px;
+  line-height: 50px;
+  padding: 0 15px;
+  border-bottom:1px solid #666;
+  font-size: 14px;
+  color: #fff;
+}
+.error-info image{
+  width: 21px;
+  height: 21px;
+  vertical-align: middle;
+}
+.error-info text{
+  color: #FCCB1C;
+  margin-left: 10px;
+}
+.info text{
+  float: left;
+  width: 59px;
+  margin-right: 18px;
+}
+.info input{
+  float: left;
+  width: 73%;
+  height: 50px;
+  line-height: 50px;
+}
+.area{
+  display: inline-block;
+  width: 73%;
+}
+.address{
+  width: 100%;
+  border-bottom:1px solid #666;
+}
+.save-btn{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 0;
+  letter-spacing: 20px;
+  color: #2D3153;
+  font-size: 16px;
+  background-color: #FCCB1C;
+}

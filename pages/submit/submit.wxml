@@ -1,0 +1,49 @@
+<view class="container">
+  <view class="banner-container">
+    <image class="banner" mode="widthFix" src="{{bannerSrc}}"></image>
+    <div class="sel-number">
+      <span>选择预定数量：</span>
+      <div>
+      <image class="minus" wx:if="{{num <= 1}}" src="{{minusSrcDisable}}"></image> 
+      <image class="minus" wx:else src="{{minusSrc}}" bindtap="minusNumber"></image> 
+      <span>{{num}}</span>
+      <image class="add" src="{{addSrc}}" bindtap="addNumber"></image>
+      </div>
+    </div>
+  </view>
+  <scroll-view scroll-y class="main-container">
+    <view>
+       <view class="rule-bg">
+        <image class="rule-container-bg" mode="widthFix" src="{{ruleSrc}}"></image>
+        <view class="rule-content">
+          <view class="title">
+            <image src="{{titleSrc}}"></image>
+            <span>活动规则</span>
+          </view>
+          <view class="rule-container">
+            <view class="rule" wx:for="{{ruleList}}" wx:for-item="rule" wx:key="{{index}}">
+              <image class="bg" src="{{rule.url}}"></image>
+              <text>{{rule.content}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="rule-detail">
+        <view class="title-detail">
+          <image src="{{titleSrc}}"></image>
+          <span>商品详情</span>
+        </view>
+        <view class="detail-bg">
+          <image lazy-load="true" mode="widthFix" src="{{detailSrc}}"></image>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="btns">
+    <button class="price-btn">
+      <span>特惠价</span>
+      <b>¥2680</b>
+    </button>
+    <button class="pay-btn" bindtap="toPay"> 立即支付 </button>
+  </view>
+</view>

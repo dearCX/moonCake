@@ -1,0 +1,6 @@
+<!--pages/mySubmit/mySubmit.wxml-->
+<view class="sub-container">
+  <image class="sub-success" mode="widthFix" src="{{subSuccSrc}}"></image> 
+  <view class="info">提交成功</view>
+  <button class="look-odd" bindtap='toMyTrack'>查看物流单号</button>
+</view>

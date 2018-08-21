@@ -1,0 +1,19 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/submit/submit",
+    "pages/mine/mine",
+    "pages/selAddress/selAddress",
+    "pages/mySubmit/mySubmit",
+    "pages/myTrack/myTrack",
+    "pages/addAddress/addAddress"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#333",
+    "navigationBarTitleText": "中秋预定",
+    "navigationBarTextStyle": "light",
+    "backgroundColor": "#2d3153"
+  }
+}

@@ -1,0 +1,24 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view> -->
+  
+  <view class="index-container">
+    <view class="main-container">
+      <image class="bg" mode="widthFix" src="{{topImg}}"></image>
+    </view>
+    <image class="bottom-bg" src="{{bottomImg}}"></image>
+    <div class="btns">
+      <button class="submit-btn" bindtap="toSubmit"> 立即预定 </button>
+      <button class="my-btn" bindtap="toMine"> 我的预定 </button>
+    </div>
+  </view>
+</view>
