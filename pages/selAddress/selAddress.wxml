@@ -7,7 +7,7 @@
       盒猫山王榴莲月饼待分配地址
     </view>
     <view class="address-list">
-      <view class="address-item" wx:for="{{addressList}}" wx:for-item="address" wx:key="{{index}}" bindtap="editAddress">
+      <view class="address-item" wx:for="{{addressList}}" wx:for-item="address" wx:key="{{index}}">
         <view class="info">
           <view>
             <span class="name">{{address.name}}</span>
@@ -16,17 +16,21 @@
           <view class="address">{{address.address}}</view>
         </view>
         <view class="openrate-btn">
-          <view>
-            <image class="minus" wx:if="{{address.number <= 1}}" src="{{minusDisableSrc}}"></image>
-            <image class="minus" wx:else src="{{minusSrc}}"></image>
+          <view wx:if="{{address.num <= 1}}">
+            <image class="minus" src="{{minusDisableSrc}}"></image>
           </view>
-          <view>{{address.number}}</view>
-          <view>
+          <view wx:else bindtap="minusNum" data-id="{{address.id}}">
+            <image class="minus" src="{{minusSrc}}"></image>
+          </view>
+          <view>{{address.num}}</view>
+          <view wx:if="{{num >= 1}}" bindtap="addNum" data-id="{{address.id}}">
             <image class="add" src="{{addAddSrc}}"></image>
-            <!-- <image class="add" wx:if="address.number <= 1" src="{{addAddDisableSrc}}"></image> -->
+          </view>
+          <view wx:else>
+            <image class="add" src="{{addAddDisableSrc}}"></image>
           </view>
         </view>
-        <view class="to-edit">
+        <view class="to-edit" bindtap="editAddress" data-id="{{address.id}}" data-name="{{address.name}}" data-phone="{{address.phone}}" data-address="{{address.address}}">
           <image src="{{toSrc}}"></image>
         </view>
       </view>
@@ -41,7 +45,7 @@
   </view>
   <button class="submit-btn" bindtap="toSubmit"> 提交 </button>
   <view wx:if="{{ifEnough}}" class="info-container">
-    <image mode="widthFix" src="{{infoUrl}}" ></image> 
+    <image mode="widthFix" src="{{infoUrl}}" bindtap="closeModal"></image> 
     <view class="info-content">
       <view wx:if="{{num < 1}}">您没有可分配的月饼了</view>
       <view wx:if="{{num > 0}}">您还有月饼未分配，请分配完成再进行提交</view>

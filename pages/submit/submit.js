@@ -40,7 +40,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
   },
   toPay: function() {
     if (this.data.num < 1) {
@@ -48,8 +47,35 @@ Page({
         selNum:true
       })
     } else {
-      wx.navigateTo({
-        url: '../selAddress/selAddress'
+      let url = getApp().globalData.url
+      let that = this
+      wx.request({
+        url: url + '/subOrder', //仅为示例，并非真实的接口地址
+        method: 'POST',
+        data: {
+          num: this.data.num,
+          token: wx.getStorageSync('token')
+        },
+        header: {
+          'content-type': 'application/json' // 默认值
+        },
+        success: function(res) {
+          if (res.statusCode === 200 && res.data.status === 0 ) {
+            // wx.setStorage({
+            //   key: 'num',
+            //   data: that.data.num
+            // })
+            wx.navigateTo({
+              url: '../selAddress/selAddress'
+            })
+          } else {
+            wx.showToast({
+              title: '服务异常，请重试',
+              duration: 1000,
+              mask:true
+            })
+          }
+        }
       })
     }
   },
@@ -60,12 +86,17 @@ Page({
     })
   },
   minusNumber: function() {
-    if (this.data.selNum > 1) {
+    if (this.data.num > 1) {
       this.data.num--
       this.setData({
         num: this.data.num
       })
     }
+  },
+  closeModal: function() {
+    this.setData({
+      selNum: false
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

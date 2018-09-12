@@ -55,8 +55,11 @@ Page({
     })
   },
   toSubmit: function() {
+    // wx.navigateTo({
+    //   url: '../submit/submit'
+    // })
     wx.navigateTo({
-      url: '../submit/submit'
+      url: '../selAddress/selAddress'
     })
   },
   toMine: function() {

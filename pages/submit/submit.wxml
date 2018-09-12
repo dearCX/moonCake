@@ -47,7 +47,7 @@
     <button class="pay-btn" bindtap="toPay"> 立即支付 </button>
   </view>
   <view wx:if="{{selNum}}" class="info-container">
-    <image mode="widthFix" src="{{infoUrl}}" ></image> 
+    <image mode="widthFix" src="{{infoUrl}}" bindtap="closeModal"></image> 
     <view class="info-content">
       <view>请选择商品个数</view>
     </view>
