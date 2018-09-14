@@ -10,13 +10,13 @@
         <view class="address">{{track.address}}</view>
       </view>
       <view class="one-total">
-        <text>{{track.number}}</text>盒
+        <text>{{track.num}}</text>盒
       </view>
     </view>
     <view class="track">
       顺丰单号
-      <text>{{track.trackNum}}</text>
-      <button class="copy-btn">复制</button>
+      <text>{{track.shipping_no}}</text>
+      <button class="copy-btn" bindtap="copyShippingNo" data-shipping="{{track.shipping_no}}">复制</button>
     </view>
   </view>
 </scroll-view>

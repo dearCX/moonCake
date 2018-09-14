@@ -27,11 +27,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // if (options.add === '0') {
-    //   this.setData({
-    //     num: 0
-    //   })
-    // }
     this.getAddressList()
   },
   getAddressList: function(){
@@ -126,12 +121,11 @@ Page({
   toSubmit: function() {
     if (this.data.num < 1) {
       let url = getApp().globalData.url
-      console.log(this.data.addressList)
       wx.request({
         url: url + '/subInfo', //仅为示例，并非真实的接口地址
         method: 'POST',
         data: {
-          addrList: JSON.stringify(this.data.addressList),
+          list: JSON.stringify(this.data.addressList),
           token: wx.getStorageSync('token')
         },
         header: {

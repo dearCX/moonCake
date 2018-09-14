@@ -47,7 +47,7 @@ Page({
     }
   },
   getUserInfo: function(e) {
-    console.log(e)
+    // console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
@@ -56,15 +56,42 @@ Page({
   },
   toSubmit: function() {
     // wx.navigateTo({
-    //   url: '../submit/submit'
+    //   url: '../selAddress/selAddress'
     // })
     wx.navigateTo({
-      url: '../selAddress/selAddress'
+      url: '../submit/submit'
     })
   },
   toMine: function() {
-    wx.navigateTo({
-      url: '../mine/mine'
+    let url = getApp().globalData.url
+    wx.request({
+      url: url + '/myOrder', //仅为示例，并非真实的接口地址
+      method: 'POST',
+      data: {
+        token: wx.getStorageSync('token')
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function(res) {
+        if (res.statusCode === 200 && res.data.status === 0 ) {
+          if (res.data.data.orderList.length > 0) {
+            wx.navigateTo({
+              url: '../myTrack/myTrack'
+            })
+          } else {
+            wx.navigateTo({
+              url: '../mine/mine'
+            })
+          }
+        } else {
+          wx.showToast({
+            title: '服务异常，请重试',
+            duration: 1000,
+            mask:true
+          })
+        }
+      }
     })
   },
 })
